@@ -4,8 +4,7 @@
   "description": "Mainly NodeJS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./bin/server"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "IST412_buildTeam",
   "license": "ISC",
@@ -15,6 +14,7 @@
     "express": "^4.16.3",
     "hbs": "^4.0.1",
     "morgan": "^1.9.0",
-    "mysql": "^2.15.0"
+    "mysql": "^2.15.0",
+    "passport": "^0.4.0"
   }
 }

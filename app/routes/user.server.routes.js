@@ -1,4 +1,8 @@
+var users = require('../controllers/user.server.controller');
+
 module.exports = function (app) {
-    module.exports = 
+    app.route('/signup')
+        .get(users.renderSignup)
+        .post(users.signup);
 
 };

@@ -2,8 +2,8 @@ var express = require('express');
 var path = require('path');
 var logger = require('morgan');
 var mysql = require('mysql');
-var appRoutes = require('./routes/app');
-var bodyPaser = require('body-parser');
+//var appRoutes = require('./routes/app');
+var bodyParser = require('body-parser');
 
 module.exports = function () {
 var app = express();
@@ -27,6 +27,6 @@ app.use(bodyParser());
 app.use(express.static('./app/views'));
 
 require('../app/routes/index.server.routes.js')(app);
-require('../app/routes/users.server.routes.js')(app);
+require('../app/routes/user.server.routes.js')(app);
 return app;
 };
