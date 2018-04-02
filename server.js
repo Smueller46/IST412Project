@@ -1,3 +1,4 @@
+//This is the first file called which starts up the web application
 var mysql = require('./config/mysql'),
     express = require('./config/express');
 

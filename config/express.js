@@ -20,6 +20,7 @@ var connection = mysql.createConnection({
 app.set('views', './app/views');
 app.set('view engine', 'hbs');
 
+//body parser is an express middleware for POST requests -> JSON
 app.use(bodyParser());
 
 //allows to simply access static files rather than having to type in
@@ -28,5 +29,6 @@ app.use(express.static('./app/views'));
 
 require('../app/routes/index.server.routes.js')(app);
 require('../app/routes/user.server.routes.js')(app);
+require('../app/routes/internships.server.routes')(app);
 return app;
 };

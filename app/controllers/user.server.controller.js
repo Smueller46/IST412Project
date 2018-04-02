@@ -1,6 +1,7 @@
-var User = require('mysql');
+var User = require('../models/user');
 passport = require('passport');
 
+//render the signin page
 exports.renderSignin = function (req, res, next) {
     if (!req.user) {
         res.render('signin', {
@@ -44,6 +45,10 @@ exports.signup = function (req, res, next) {
     }
 };
 
+exports.signin = function (req, res) {
+    
+}
+
 exports.signout = function (req, res) {
     req.logout();
     res.redirect('/');
@@ -86,6 +91,9 @@ exports.userByID = function (req, res, next, id) {
         }
     });
 };
+exports.listInternships = function (req, res, next) {
+
+}
 
 exports.update = function (req, res, next) {
     User.findByIdAndUpdate(req.user.id, req.body, function (err, user) {
