@@ -9,6 +9,6 @@ var connection = mysql.createConnection({
     password: 'secret',
     database: 'app_database'
 });
-require('../app/models/user')
+// require('../app/models/user')
 return connection;
 };

@@ -1,5 +1,25 @@
-var User = require('../models/user');
+const User = require('mongoose').model('User');
 passport = require('passport');
+
+function getErrorMessage(err) {
+    let message = '';
+    if (err.code) {
+        switch (err.code) {
+            case 11000:
+            case 11001:
+                message = 'Username already exists';
+                break;
+            default:
+                message = 'Something went wrong';
+        }
+    } else {
+        for (var errName in err.errors) {
+            if (err.errors[errName].message) message =
+                err.errors[errName].message;
+        }
+    }
+    return message;
+};
 
 //render the signin page
 exports.renderSignin = function (req, res, next) {
@@ -26,18 +46,20 @@ exports.renderSignup = function (req, res, next) {
 //signup logic to add user to DB. Will be something like this but not exact
 exports.signup = function (req, res, next) {
     if (!req.user) {
-        var user = new User(req.body);
+       var user = new User(req.body);
         var message = null;
-        user.provider = 'local';
+        console.log(req.body)
+       user.provider = 'local';
         user.save(function (err) {
             if (err) {
-                var message = getErrorMessage(err);
-                req.flash('error', message);
-                return res.redirect('/signup');
+                 var message = getErrorMessage(err);
+                 req.flash('error', message);
+                console.log(err)
+                return res.redirect('/signup',);
             }
             req.login(user, function (err) {
                 if (err) return next(err);
-                return res.redirect('/');
+                return res.redirect('/home');
             });
         });
     } else {
@@ -45,6 +67,14 @@ exports.signup = function (req, res, next) {
     }
 };
 
+exports.renderHome = function (req, res) {
+    if(req.session) {
+        res.render('home', {
+            username: req.user.firstName
+        }
+    )
+    };
+}
 exports.signin = function (req, res) {
     
 }

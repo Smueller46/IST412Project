@@ -1,24 +1,40 @@
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 var express = require('express');
 var path = require('path');
 var logger = require('morgan');
 var mysql = require('mysql');
 //var appRoutes = require('./routes/app');
 var bodyParser = require('body-parser');
-
+const passport = require('passport');
+const flash = require('connect-flash');
+const session = require('express-session');
+const config = require('./config');
 module.exports = function () {
 var app = express();
 
 //create the mysql DB connection
-var connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'user',
-    password: 'secret',
-    database: 'app_database'
-});
+// var connection = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'user',
+//     password: 'secret',
+//     database: 'app_database'
+// });
 //view- templating engine, lets's try handlebars. I think you all will
 //find if useful
+
+app.use(session({
+    saveUninitialized: true,
+    resave: true,
+    secret: config.sessionSecret
+    }));
+
 app.set('views', './app/views');
-app.set('view engine', 'hbs');
+app.set('view engine', 'ejs');
+
+
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
 
 //body parser is an express middleware for POST requests -> JSON
 app.use(bodyParser());

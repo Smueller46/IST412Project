@@ -6,7 +6,16 @@ module.exports = function (app) {
     app.route('/signup')
         .get(users.renderSignup)
         .post(users.signup);
+   
     app.route('/signin')
         .get(users.renderSignin)
-        .post(users.signin);
+        .post(passport.authenticate('local', {
+            successRedirect: '/home',
+            failureRedirect: '/signin',
+            failureFlash: true
+        }));
+    app.route('/home')
+        .get(users.renderHome);
+    
+    app.route('/logout', )
 };

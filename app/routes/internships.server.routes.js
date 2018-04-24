@@ -2,8 +2,8 @@ var internships = require('../controllers/internships.server.controller');
 
 module.exports = function(app) {
     app.route('/internships')
-        .get(internships.renderInternships)
-        .post(internships.addInternship);
+        .get(internships.list)
+        .post(internships.create);
 }
 
 // module.exports = function(app) {
