@@ -57,16 +57,16 @@
 				<h3>Your Personal Information</h3>
 				<ul class="listorder">
 					<li><p>Dawg Tag:</p></li>
-					<li><p>First Name:</p></li>
-					<li><p>LastName:</p></li>
-					<li><p>Phone Number:</p></li>
-					<li><p>Email Address:</p></li>
-					<li><p>Address:</p></li>
-					<li><p>Graduating Class:</p></li>
-					<li><p>Student GPA:</p></li>
-					<li><p>Industry:</p></li>
-					<li><p>Date of Birth:</p></li>
-					<li><p>Security Questions:</p></li>
+					<li><p>First Name: </p> <label class="labels"><%= firstName %> </label> </li>
+					<li><p>LastName: </p> <labe class="labels" l><%= lastName %> </label></li> 
+					<li><p>Phone Number: <%= phone %></p></li>
+					<li><p>Email Address: <%=email %> </p></li>
+					<li><p>Address: <%=address %> </p></li>
+					<li><p>Graduating Class: <%=gradYear %></p></li>
+					<li><p>Student GPA: <%=gpa %></p></li>
+					<li><p>Industry:<%= industry %></p></li>
+					<li><p>Date of Birth: <%= birthdate %></p></li>
+					<li><p>Security Questions: <%= securityQuestion %></p></li>
 					<li><button type="edit" class="btn btn-outline-primary">Edit</button></li>
 				</ul>
 				<ul class="listorder">
@@ -100,8 +100,11 @@
 					<select >
 						<option>Resume</option><!--FIELD-->  
 					</select>
-					<p>Upload new resume</p>
-					<button type="Resume" class="btn btn-outline-primary" >Chose File</button><!--BUTTON-->
+					<form action="/home" method="post">
+					<label for="file">Choose file to upload</label>
+					<input type="file" id="file" name="file" multiple>
+					<button type="submit" class="btn">upload</button>
+					</form>	
 				</div>
 				<div class="row"><p></p></div>
 				<div name="SocialMedia">

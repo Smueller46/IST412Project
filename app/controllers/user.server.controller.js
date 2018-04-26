@@ -21,10 +21,13 @@ function getErrorMessage(err) {
     return message;
 };
 
+exports.saveFile = function (req, res, next) {
+
+};
 //render the signin page
 exports.renderSignin = function (req, res, next) {
     if (!req.user) {
-        res.render('signin.html', {
+        res.render('student/signin', {
             title: 'Sign-in Form',
             messages: req.flash('error') || req.flash('info')
         });
@@ -35,7 +38,7 @@ exports.renderSignin = function (req, res, next) {
 //render the signup page
 exports.renderSignup = function (req, res, next) {
     if (!req.user) {
-        res.render('student/signup.html', {
+        res.render('student/signup', {
             title: 'Sign-up Form',
             messages: req.flash('error')
         });
@@ -69,8 +72,18 @@ exports.signup = function (req, res, next) {
 
 exports.renderHome = function (req, res) {
     if(req.session) {
-        res.render('home', {
-            username: req.user.firstName
+        res.render('student/home', {
+            firstName: req.user.firstName,
+            lastName: req.user.lastName,
+            phone: req.user.phone,
+            email: req.user.email,
+            address: req.user.localAdress,
+            gradYear: req.user.gradYear,
+            gpa: req.user.gpa,
+            industry: req.user.industry,
+            birthdate: req.user.birthdate,
+            securityQuestion: req.user.securityQuestion
+
         }
     )
     };

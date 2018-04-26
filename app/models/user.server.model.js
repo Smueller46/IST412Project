@@ -30,6 +30,7 @@ const UserSchema = new Schema({
 	gradYear: { type: Number, min: 2018, max: 2040},
 	gpa: {type: Number, min: 0.0, max: [4.0, 'higher than 4.0?']},
 	industry: String,
+	securityQuestion: String,
 	securityAnswer: String,
 	dawgTag: String,
 	username: {

@@ -29,7 +29,7 @@ app.use(session({
     }));
 
 app.set('views', './app/views');
-// app.set('view engine', 'ejs');
+app.set('view engine', 'ejs');
 
 
 app.use(flash());

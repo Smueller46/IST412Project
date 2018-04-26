@@ -15,8 +15,8 @@ module.exports = function (app) {
             failureFlash: true
         }));
     app.route('/home')
-        .get(passport.authenticate(users.renderHome));
-    
+        .get(users.renderHome)
+        .post(users.saveFile);
     // app.route('/logout', )
     
     // app.route('/admin')
