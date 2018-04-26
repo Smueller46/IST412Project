@@ -1,0 +1,60 @@
+.navbar-default 
+{
+	background-color: #680202;
+}
+
+.navbar-brand
+{
+    height: 3%;
+}
+
+#pagetext
+{
+	color: #fff;
+	padding-top: -40%;
+}
+#usertext
+{
+	color: #fff;
+	padding-top: 3%;
+	padding-left: 15%;
+}
+
+.navbar-brand img
+{
+	display: inline-block;
+    margin-left: 20px;
+}
+
+.searchbox
+{
+	padding-top: 1%;
+}
+
+.btn-outline-primary 
+{
+    color: #000;
+    background-color: rgb(234, 234, 234);
+    border-color: #680202; 
+}
+
+#navtopbuttons
+{
+	padding-bottom: 2%;
+}
+
+.btn-lg
+{
+	background-color: #680202;
+	border-color: #fff; 
+}
+
+.footer
+{
+	padding: 6px 0px 0px 18px;
+	clear: both;
+	color: white;
+	height: 30px;
+	text-align: center;
+	background-color: #680202;
+} 

@@ -15,7 +15,10 @@ module.exports = function (app) {
             failureFlash: true
         }));
     app.route('/home')
-        .get(users.renderHome);
+        .get(passport.authenticate(users.renderHome));
     
-    app.route('/logout', )
+    // app.route('/logout', )
+    
+    // app.route('/admin')
+    // .get(passport)
 };

@@ -29,7 +29,7 @@ app.use(session({
     }));
 
 app.set('views', './app/views');
-app.set('view engine', 'ejs');
+// app.set('view engine', 'ejs');
 
 
 app.use(flash());
@@ -43,6 +43,7 @@ app.use(bodyParser());
 //the full path name of the files
 app.use(express.static('./app/views'));
 
+require('./connect.js')(app);
 require('../app/routes/index.server.routes.js')(app);
 require('../app/routes/user.server.routes.js')(app);
 require('../app/routes/internships.server.routes')(app);
