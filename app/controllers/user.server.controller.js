@@ -70,24 +70,7 @@ exports.signup = function (req, res, next) {
     }
 };
 
-exports.renderHome = function (req, res) {
-    if(req.session) {
-        res.render('student/home', {
-            firstName: req.user.firstName,
-            lastName: req.user.lastName,
-            phone: req.user.phone,
-            email: req.user.email,
-            address: req.user.localAdress,
-            gradYear: req.user.gradYear,
-            gpa: req.user.gpa,
-            industry: req.user.industry,
-            birthdate: req.user.birthdate,
-            securityQuestion: req.user.securityQuestion
 
-        }
-    )
-    };
-}
 exports.signin = function (req, res) {
     
 }

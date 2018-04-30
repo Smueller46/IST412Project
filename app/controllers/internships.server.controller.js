@@ -1,7 +1,8 @@
 // Load the module dependencies
 const mongoose = require('mongoose');
-const Article = mongoose.model('Article');
-
+// const Article = mongoose.model('Article');
+const Internship = mongoose.model('Internship');
+const scholarships = mongoose.model('scholarship');
 // Create a new error handling controller method
 const getErrorMessage = function(err) {
     if (err.errors) {
@@ -13,16 +14,20 @@ const getErrorMessage = function(err) {
     }
 };
 
+exports.renderInternships = function  ( req, res) {
+    res.render('employer/Emp_int_upload')
+
+}
 // Create a new controller method that creates new articles
 exports.create = function(req, res) {
     // Create a new article object
-    const article = new Article(req.body);
+    const internship = new Internship(req.body);
 
     // Set the article's 'creator' property
-    article.creator = req.user;
+    // article.creator = req.user;
 
     // Try saving the article
-    article.save((err) => {
+    internship.save((err) => {
         if (err) {
             // If an error occurs send the error message
             return res.status(400).send({
@@ -30,15 +35,15 @@ exports.create = function(req, res) {
             });
         } else {
             // Send a JSON representation of the article 
-            res.json(article);
+            res.json(internship);
         }
     });
 };
 
 // Create a new controller method that retrieves a list of articles
-exports.list = function(req, res) {
+exports.findInternship = function(req, res) {
     // Use the model 'find' method to get a list of articles
-    Article.find().sort('-created').populate('creator', 'firstName lastName fullName').exec((err, articles) => {
+    Internship.find({  '' : req.name }, 'title name' ).sort('-name').toArray((err, internship) => {
         if (err) {
             // If an error occurs send the error message
             return res.status(400).send({
@@ -46,7 +51,7 @@ exports.list = function(req, res) {
             });
         } else {
             // Send a JSON representation of the article 
-            res.json(articles);
+            res.json(internship);
         }
     });
 };
@@ -112,7 +117,9 @@ exports.articleByID = function(req, res, next, id) {
         next();
     });
 };
-
+exports.search = function (req, res, next) {
+    Internship.find( req.name  )
+}
 // Create a new controller middleware that is used to authorize an article operation 
 exports.hasAuthorization = function(req, res, next) {
     // If the current user is not the creator of the article send the appropriate error message

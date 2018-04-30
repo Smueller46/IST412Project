@@ -1,0 +1,41 @@
+
+
+div.scroll {
+      width:80%;
+      overflow-x:scroll;
+      height:300px;
+	  margin-left: 10%;
+	 
+}
+table{
+        border-collapse:collapse; 
+        border-radius: 5px;
+		
+} 
+th{
+        font-family:segoe ui;
+        color:black;
+        font-size:11pt;
+        border-bottom:1px solid #fff;
+        border-right:1px solid #fff;
+        border-left:1px solid #fff;
+        color:#fff;padding:1px 1px 0;
+        background-color:#680202;
+}
+td{
+        font-family:Courier; 
+        color:black; 
+        font-size:11pt;
+        align: 'right';
+        border-bottom:1px solid #fff;
+        border-right:1px solid #fff;
+        color:black;
+        padding:1px 1px 0 
+}
+tr {
+        background-color:	#F8F8FF;
+}
+.approval
+{
+	margin-left: 30%;
+}

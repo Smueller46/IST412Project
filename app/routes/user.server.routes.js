@@ -14,9 +14,6 @@ module.exports = function (app) {
             failureRedirect: '/signin',
             failureFlash: true
         }));
-    app.route('/home')
-        .get(users.renderHome)
-        .post(users.saveFile);
     // app.route('/logout', )
     
     // app.route('/admin')

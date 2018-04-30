@@ -3,22 +3,47 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 // Define a new 'ArticleSchema'
-const ArticleSchema = new Schema({
+const InternshipSchema = new Schema({
     created: {
         type: Date,
         default: Date.now
     },
-    title: {
+    name: {
         type: String,
         default: '',
         trim: true,
-        required: 'Title cannot be blank'
+        required: 'Company name cannot be blank'
     },
-    content: {
+	email: {
+		type: String,
+		// Validate the email format
+    //   match: [/.+\@.+\..+/, "Please fill a valid email address"]
+    required: 'must have an email'
+	},
+    title: {
         type: String,
-        default: '',
-        trim: true
+        required: 'must have a job title'
     },
+    skills: {
+        type: String,
+        required: 'please fill in skills'
+    },
+
+    duration: {
+        type: String,
+        required: 'please enter duration'
+    },
+
+    description: {
+        type: String,
+
+    },
+
+    approved: {
+        type: Boolean,
+        default: false
+    },
+
     creator: {
         type: Schema.ObjectId,
         ref: 'User'
@@ -26,4 +51,4 @@ const ArticleSchema = new Schema({
 });
 
 // Create the 'Article' model out of the 'ArticleSchema'
-mongoose.model('Article', ArticleSchema);
+mongoose.model('Internship', InternshipSchema);

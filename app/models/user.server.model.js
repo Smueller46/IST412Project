@@ -65,6 +65,17 @@ const UserSchema = new Schema({
 		type: Date,
 		// Create a default 'created' value
 		default: Date.now
+	},
+	roles: {
+		type: [{
+			type: String,
+			enum: ['student','faculty', 'admin']
+		}],
+		default: ['student'],
+	},
+	created: {
+		type: Date,
+		default: Date.now
 	}
 }, options);
 

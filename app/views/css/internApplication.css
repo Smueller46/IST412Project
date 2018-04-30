@@ -1,0 +1,24 @@
+.description
+{
+	margin-left: 2.5em;
+	padding: 0 20em 20em 0;
+	border-width: 20px;
+
+}
+.job_title
+{
+	margin-left: 2.5em;
+	padding: 0 4em 6em 0;
+	border-width: 20px;
+}
+.company
+{
+	margin-left: 2.5em;
+	padding: 0 4em 6em 0;
+	border-width: 20px;	
+}
+.pdf
+{
+	width: 400px;
+	height: 600px;
+}

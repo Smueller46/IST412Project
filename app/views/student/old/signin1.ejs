@@ -1,0 +1,102 @@
+<!Doctype html>
+<html lang="en">
+    <head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<!--Bootstrap Tools-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<!--===================-->
+        <link rel="stylesheet" type="text/css" href="../css/ISATBaseNavBar.css" />
+		<link rel="stylesheet" type="text/css" href="../css/loginStyle.css" />
+        <title>Login or Create Your Account</title>
+    </head>
+    <body>
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="ISATPh.html"><!--LINK--><img src="https://siu.edu/_assets/images/siu-logo.png" width="120" 
+						height="120"alt="HoeIcon"></a>
+				</div>
+				<p class="navtext" id="usertext">Welcome User<!--TEXT--></p>
+				<div class="container col-lg-1 col-md-1 col-sm-1 col-xs-2"></div>
+					<div class="container col-lg-1 col-md-1 col-sm-1 col-xs-2">
+						<ul class="nav navbar-nav">
+							<li><button class="btn btn-outline-primary" type="button" onClick="window.location.href='student_Login.html'"/><!--LINK-->Login or Sign Up!</li>
+						</ul>
+					</div>
+				<div class="container col-lg-1 col-md-1 col-sm-1 col-xs-2"></div>
+				<ul class="nav navbar-right">
+					<li class="col-sm-3 searchbox">
+						<form class="form-inline mr-auto">
+							<div class="md-form mt-0">
+								<input class="form-control" type="text" placeholder="Search" aria-label="Search"><!--SEARCH-->
+								<i class="fa fa-search text-white ml-3" aria-hidden="true"></i>
+							</div>
+						</form>
+					</li>
+				</ul>
+			</div>
+			<h1 class="text-center" id="pagetext">PageName</h1>
+			
+			<div class="text-center" id="navtopbuttons">
+				<div class="btn-group" role="group" aria-label="Basic example">
+				  <button type="button" class="btn btn-primary btn-lg">Portal</button><!--BUTTON-->
+				  <button type="button" class="btn btn-primary btn-lg">Account</button><!--BUTTON-->
+				  <button type="button" class="btn btn-primary btn-lg">Scholarship</button><!--BUTTON-->
+				  <button type="button" class="btn btn-primary btn-lg">Internship</button><!--BUTTON-->
+				</div>
+			</div>
+		</nav>
+		
+		<div class="container col-lg-2 col-md-2 col-sm-2"></div>
+		<div class="container col-lg-2 col-md-2 col-sm-2">
+			<div class="container-fluid">
+				<div class="row text-center">
+					<form class="sign" action="/signin" method="post">
+						<article>
+							<p>Enter required information </br> below to login to your account.</br></p>
+							<p>Username: 
+								<input type="text" name="username" size="15" 
+								maxlength ="30" /> <!--TEXTFIELD-->
+							</p>
+							<p>Password: 
+									<input type="password" name="password" size="15" 
+									maxlength ="30" /><!--TEXTFIELD-->
+								</p>
+						   <input class="btn btn-outline-primary" type="submit" value="Login" /><!--BUTTON-->
+						</article>
+						<p></br></p>
+						<p> Having probems? Contact </br> an Admin at admin@siu.edu </p>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="container col-lg-2 col-md-2 col-sm-2"></div>
+		<div class="container col-lg-2 col-md-2 col-sm-2">
+			<div class="container-fluid">
+				<div class="row text-center">
+					<form action="/signup" method="GET" "create">
+						<article>
+							<p>Don't have an account? Click </br> the button bellow to get started</p>
+							<input class="btn btn-outline-primary" type="submit" value="Sign up"/><!--BUTTON-->
+						</article
+					</form>
+					<form class="create">
+						<article>
+							<p> Employeers, create your account here </br> get started adding your own internships! </p>
+							<input class="btn btn-outline-primary" type="submit" value="Sign up"/><!--BUTTON-->
+						</article
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="container col-lg-2 col-md-2 col-sm-2"></div>
+		
+		<div class="footer">
+			<span>&copy; 2018 SIU IST 412</span>
+		</div>
+	
+	</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<!--Bootstrap Tools-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<!--===================-->
+		<title>ISAT Internship Portal</title>
+		<link rel="stylesheet" type="text/css" href="../css/ISATBaseNavBar.css" media="screen"/>
+		<link rel="stylesheet" type="text/css" href="../css/internApplication.css" media="screen"/>
+	</head>
+	
+	<body>
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="ISATPh.html"><!--LINK--><img src="https://siu.edu/_assets/images/siu-logo.png" width="120" 
+						height="120"alt="HoeIcon"></a>
+				</div>
+				<p class="navtext" id="usertext">Welcome User<!--TEXT--></p>
+				<div class="container col-lg-1 col-md-1 col-sm-1 col-xs-2"></div>
+					<div class="container col-lg-1 col-md-1 col-sm-1 col-xs-2">
+						<ul class="nav navbar-nav">
+							<li><button class="btn btn-outline-primary" type="button" onClick="window.location.href='student_Login.html'"/><!--LINK-->Sign Out!</li>
+						</ul>
+					</div>
+				<div class="container col-lg-1 col-md-1 col-sm-1 col-xs-2"></div>
+				<ul class="nav navbar-right">
+					<li class="col-sm-3 searchbox">
+						<form class="form-inline mr-auto">
+							<div class="md-form mt-0">
+								<input class="form-control" type="text" placeholder="Search" aria-label="Search"><!--SEARCH-->
+								<i class="fa fa-search text-white ml-3" aria-hidden="true"></i>
+							</div>
+						</form>
+					</li>
+				</ul>
+			</div>
+			<h1 class="text-center" id="pagetext">Internship Application</h1>
+			
+			<div class="text-center" id="navtopbuttons">
+				<div class="btn-group" role="group" aria-label="Basic example">
+				  <button type="button" class="btn btn-primary btn-lg">Portal</button><!--BUTTON-->
+				  <button type="button" class="btn btn-primary btn-lg">Account</button><!--BUTTON-->
+				  <button type="button" class="btn btn-primary btn-lg">Scholarship</button><!--BUTTON-->
+				  <button type="button" class="btn btn-primary btn-lg">Internship</button><!--BUTTON-->
+				</div>
+			</div>
+		</nav>
+		<div class="col-lg-12">
+		<div class="col-lg-8">
+		<h3>Company</h3>
+		<p class="company"></p><!--Textfield-->
+		
+		<h3>Job Title</h3>
+		<p class ="job_title"></P>
+		
+		<h3>Job Description</br></h3>
+		<p class ="description" ></p><!--field-->
+		
+		<h3>Skills and Qualification</h3>
+				<ul>
+					<li><p><!--TEXT--></p></li>
+					<li><p><!--TEXT--></p></li>
+					<li><p><!--TEXT--></p></li>
+					<li><p><!--TEXT--></p></li>
+					<li><p><!--TEXT--></p></li>
+					<li><p><!--TEXT--></p></li>
+					<li><p><!--TEXT--></p></li>
+				</ul>
+		</div>
+		<div col-lg-4>
+		<embed class="pdf" src="5_IST 470 Data Dictionary.pdf" type="application/pdf"  /><!--RESUME-->
+		
+		
+		<h3>Contact Info</h3>
+		
+			<div class="form-group col-sm-3">
+					<label>Email Address:</label>
+					<input type="email" name="email" class="form-control" title="This_Email_Format@email.com"pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+				</div>
+			<div class="form-group col-sm-3">
+					<label>Phone number:</label>
+					<input  class="form-control" title= "111-111-1111" pattern="\d{3}[\-]\d{3}[\-]\d{4}" required>
+			</div>
+		
+		</div>
+		</div>
+		
+		<div class="text-center" id="navtopbuttons">
+		<button type="button" class="text-center btn btn-primary btn-lg">Apply</button><!--BUTTON-->
+		<button type="button" class="btn btn-primary btn-lg">Cancel</button><!--BUTTON-->
+		</div>
+		<footer class="footer">
+				<span>&copy; 2018 SIU IST 412</span>
+		</footer>
+	</body>
+</html>

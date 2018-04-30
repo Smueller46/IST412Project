@@ -43,7 +43,9 @@ app.use(bodyParser());
 //the full path name of the files
 app.use(express.static('./app/views'));
 
-require('./connect.js')(app);
+// require('./connect.js')(app);
+require('../app/routes/admin.server.routes.js')(app);
+require('../app/routes/student.server.routes.js')(app);
 require('../app/routes/index.server.routes.js')(app);
 require('../app/routes/user.server.routes.js')(app);
 require('../app/routes/internships.server.routes')(app);

@@ -1,0 +1,71 @@
+
+
+.results
+{
+	height: 100%;
+}
+
+#internship 
+{
+	
+    background-color: lightgrey;
+    width: 96%;
+	height: 100%;
+    border: 25px solid #680202;
+    padding: 25px;
+    margin: auto;
+}
+
+#internship2 
+{
+	
+    background-color: lightgrey;
+    width: 95%;
+	height: 100%;
+    border: 25px solid #680202;
+    padding: 25px;
+    margin: auto;
+}
+
+#text2
+{
+	font-size: 30px;
+	text-align: center;
+	color: #680202;
+	
+}
+#text
+{
+	
+	text-align: center;
+	color: solid black;
+	
+}
+
+#text-left
+{
+	text-align: left;
+	color: solid black;
+	font-size: 24px;
+}
+
+.intern-btn 
+{
+	color: #000;
+    background-color: rgb(234, 234, 234);
+    border-color: #680202; 
+	width: 17%;
+	height: 48px;
+	border-radius: 8px;
+	margin: 10px;
+}
+
+.intern-btn2
+{
+	color: #000;
+    background-color: rgb(234, 234, 234);
+    border-color: #680202; 
+	width: 150px;
+	border-radius: 8px;
+
+}

@@ -1,6 +1,3 @@
-exports.render = function (req, res) {
-    res.render('index', {
-    
-
-    });
+exports.render = function (req, res, next) {
+    res.render('public/portal' );
 };

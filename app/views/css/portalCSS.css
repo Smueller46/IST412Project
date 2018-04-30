@@ -1,0 +1,19 @@
+.portalRow
+{
+	height: 100%;
+}
+
+.portalCol
+{
+	border:1px solid #cecece;	
+}
+
+#east
+{
+	width: 30%; height: auto;
+}
+
+#west
+{
+	width: 70%; height: auto;
+}

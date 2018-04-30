@@ -1,0 +1,129 @@
+<!Doctype html>
+<html lang="en">
+    <head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<!--Bootstrap Tools-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<!--===================-->
+        <link rel="stylesheet" type="text/css" href="ISATBaseNavBar.css" />
+		<link rel="stylesheet" type="text/css" href="Emp_upload.css" />
+        <title>ISAT Internship Portal</title>
+    </head>
+	<body>
+			<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="ISATPh.html"><!--LINK--><img src="https://siu.edu/_assets/images/siu-logo.png" width="120" 
+						height="120"alt="HoeIcon"></a>
+				</div>
+			</div>
+			<h1 class="text-center" id="pagetext">Internship Application</h1>
+		</nav>
+
+		<div class="container enp_upload">
+		  <form action="/internships" method="POST">
+			<div class="row">
+			  <div class="col-25">
+				<label for="cname">Company Name*</label>
+			  </div>
+			  <div class="col-75">
+				<input type="text" id="cname" name="name" placeholder="Compnay Inc"required><!--TEXTFIELD-->
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-25">
+				<label for="cemail">Company Email*</label>
+			  </div>
+			  <div class="col-75">
+				<input type="text" id="cemail" name="email" placeholder="company@email" required><!--TEXTFIELD-->
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-25">
+				<label for="jtitle">Job Title*</label>
+			  </div>
+			  <div class="col-75">
+				<input type="text" id="jtitle" name="title" placeholder="Job Title" required><!--TEXTFIELD-->
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-25">
+				<label for="skills">Skills*</label>
+			  </div>
+			  <div class="col-75">
+				<input type="text" id="skills" name="skills" placeholder="Skill, Skill" required><!--TEXTFIELD-->
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-25">
+				<label for="jtitle">type*</label>
+			  </div>
+			  <div class="col-75">
+				<input type="text" id="jtitle" name="type" placeholder="type" required><!--TEXTFIELD-->
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-25">
+				<label for="jtitle">Location*</label>
+			  </div>
+			  <div class="col-75">
+				<input type="text" id="jtitle" name="location" placeholder="Location" required><!--TEXTFIELD-->
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-25">
+				<label for="jtitle">Paid*</label>
+			  </div>
+			  <div class="form-group col-75">
+					<select id="Months" name="paid" required>
+						<option value="1">yes</option> 
+						<option value="2">no</option>
+						</select>
+			</div>
+			</div>
+			<div class="row">
+			  <div class="col-25">
+				<label for="live">Internship live for*</label>
+			  </div>
+			  <div class="form-group col-75">
+				<select id="Months" name="duration" required>
+				  <option value="1">1 Month</option> 
+				  <option value="2">2 Months</option>
+				  <option value="3">3 Months</option>
+				  <option value="4">4 Months</option>
+				  <option value="5">5 Months</option>
+				  <option value="6">6 Months</option>
+				  <option value="7">7 Months</option>
+				  <option value="8">8 Months</option>
+				  <option value="9">9 Months</option>
+				  <option value="10">12 Months</option>
+				  <option value="11">11 Months</option>
+				  <option value="12">12 Months</option> <!--FIELD-->
+				</select>
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-25">
+				<label for="Description">Description</label>
+			  </div>
+			  <div class="col-75">
+				<textarea id="Description" name="description" placeholder="Job Description.." style="height:200px"></textarea><!--TEXTFIELD-->
+			  </div>
+			</div>
+				<div class="row">
+					<div class="col-75">
+						<button class="btn intern-btn">Submit</button>
+					</div>
+				</div>
+		  </form>
+		</div>
+		
+		<footer class="footer">
+			<span>&copy; 2018 SIU IST 412</span>
+		</footer>
+		
+	</body>
+</html>
