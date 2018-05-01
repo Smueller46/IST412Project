@@ -19,7 +19,8 @@ const InternshipSchema = new Schema({
 		// Validate the email format
     //   match: [/.+\@.+\..+/, "Please fill a valid email address"]
     required: 'must have an email'
-	},
+    },
+
     title: {
         type: String,
         required: 'must have a job title'
@@ -29,16 +30,36 @@ const InternshipSchema = new Schema({
         required: 'please fill in skills'
     },
 
+    type: {
+        type: String,
+        required: true
+    },
+
+    location: {
+       type: String,
+       required: true 
+    },
+    semester: {
+        type: String,
+        enum: ['fall', 'summer', 'spring']
+    },
+
+    paid: {
+        type: String,
+        enum: ['yes', 'no']
+    },
     duration: {
         type: String,
         required: 'please enter duration'
     },
 
     description: {
-        type: String,
+        type: String
 
     },
-
+    adminRejected: {
+        type: Boolean
+    },
     approved: {
         type: Boolean,
         default: false

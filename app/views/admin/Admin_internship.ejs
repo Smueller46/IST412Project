@@ -8,6 +8,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<!--===================-->
+
 		<title>ISAT Internship Portal</title>
 		<link rel="stylesheet" type="text/css" href="../css/ISATBaseNavBar.css" media="screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/Admin_intership.css" media="screen"/>
@@ -62,7 +63,7 @@
     
     <div class='scroll'>
 	
-    <table width="100%">
+    <table width="100%" id='approved'>
 	
              <thead>
             <tr>
@@ -77,134 +78,31 @@
             </tr>
           </thead>
           <tbody>
+							<% var a = 1; %>
+						 <% result.forEach(function(result) { %>
+							
+						<tr>
+						<td class="col-xs-1"><%=a %></td>
+							<td class="col-xs-4"><%= result.title %></td>
+							<td class="col-xs-4"><%= result.name %></td>
+								<td class="col-xs-4"><%= result.type %></td>
+							<td class="col-xs-4"><%= result.location %></td>
+							<td class="col-xs-4"><%= result.semester %></td>
+							<td class="col-xs-4"><%= result.paid %></td>
+							<td class="col-xs-1 objectID"  style="display:none;"> <%=result._id %></td>
+								<td class="col-xs-1"><input type="checkbox" name="select" class="selectApproved" /></td>
+									</tr>
+								<%	a++; %>
+						<%}) %>
             <tr>
-              <td class="col-xs-1">1</td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			    <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			   <td class="col-xs-1"></td>
-			    <td class="col-xs-1"><input type="checkbox" name="select" value="select"/></td>
-            </tr>
-            <tr>
-              <td class="col-xs-1">2</td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			    <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			   <td class="col-xs-1"></td>
-			   <td class="col-xs-1"><input type="checkbox" name="select" value="select"/></td>
-            </tr>
-            <tr>
-              <td class="col-xs-1">3</td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			   <td class="col-xs-1"></td>
-			   <td class="col-xs-1"><input type="checkbox" name="select" value="select"/></td>
-            </tr>
-            <tr>
-              <td class="col-xs-1">4</td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-1"></td>
-			  <td class="col-xs-1"><input type="checkbox" name="select" value="select"/></td>
-            </tr>
-            <tr>
-              <td class="col-xs-1">5</td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-1"></td>
-			  <td class="col-xs-1"><input type="checkbox" name="select" value="select"/></td>
-            </tr>
-            <tr>
-              <td class="col-xs-1">6</td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-1"></td>
-			  <td class="col-xs-1"><input type="checkbox" name="select" value="select"/></td>
-            </tr>
-            <tr>
-              <td class="col-xs-1">7</td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			   <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-1"></td>
-			  <td class="col-xs-1"><input type="checkbox" name="select" value="select"/></td>
-            </tr>
-            <tr>
-              <td class="col-xs-1">8</td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			   <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-1"></td>
-			  <td class="col-xs-1"><input type="checkbox" name="select" value="select"/></td>
-            </tr>
-            <tr>
-              <td class="col-xs-1">9</td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-24"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-1"></td>
-			  <td class="col-xs-1"><input type="checkbox" name="select" value="select"/></td>
-            </tr>
-            <tr>
-              <td class="col-xs-1">10</td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-1"></td>
-			  <td class="col-xs-1"><input type="checkbox" name="select" value="select"/></td>
-            </tr>
-            <tr>
-              <td class="col-xs-1">11</td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-1"></td>
-			  <td class="col-xs-1"><input type="checkbox" name="select" value="select"/></td>
-            </tr>
-            <tr>
-              <td class="col-xs-1">12</td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			   <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-1"></td>
-			  <td class="col-xs-1"><input type="checkbox" name="select" value="select"/></td>
-            </tr>
           </tbody>
     </table>
 	
 	</div>
 	<div><p><br></p></div>
 		<div class="row text-center">
-			 <button type="button" class="btn btn-primary btn-lg ">Approved</button><!--BUTTON-->
-			<button type="button" class="btn btn-primary btn-lg ">Reject</button><!--BUTTON-->
+			 <button type="button" class="btn btn-primary btn-lg " value= "approved">Approved</button><!--BUTTON-->
+			<button type="button" class="btn btn-primary btn-lg " value= "rejected" >Reject</button><!--BUTTON-->
 		</div>
 		<div><p><br></p></div>
 	</div>
@@ -234,126 +132,23 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td class="col-xs-1">1</td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			    <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			   <td class="col-xs-1"></td>
-			    <td class="col-xs-1"><input type="checkbox" name="select" value="select"/></td>
-            </tr>
-            <tr>
-              <td class="col-xs-1">2</td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			    <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			   <td class="col-xs-1"></td>
-			   <td class="col-xs-1"><input type="checkbox" name="select" value="select"/></td>
-            </tr>
-            <tr>
-              <td class="col-xs-1">3</td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			   <td class="col-xs-1"></td>
-			   <td class="col-xs-1"><input type="checkbox" name="select" value="select"/></td>
-            </tr>
-            <tr>
-              <td class="col-xs-1">4</td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-1"></td>
-			  <td class="col-xs-1"><input type="checkbox" name="select" value="select"/></td>
-            </tr>
-            <tr>
-              <td class="col-xs-1">5</td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-1"></td>
-			  <td class="col-xs-1"><input type="checkbox" name="select" value="select"/></td>
-            </tr>
-            <tr>
-              <td class="col-xs-1">6</td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-1"></td>
-			  <td class="col-xs-1"><input type="checkbox" name="select" value="select"/></td>
-            </tr>
-            <tr>
-              <td class="col-xs-1">7</td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			   <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-1"></td>
-			  <td class="col-xs-1"><input type="checkbox" name="select" value="select"/></td>
-            </tr>
-            <tr>
-              <td class="col-xs-1">8</td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			   <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-1"></td>
-			  <td class="col-xs-1"><input type="checkbox" name="select" value="select"/></td>
-            </tr>
-            <tr>
-              <td class="col-xs-1">9</td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-24"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-1"></td>
-			  <td class="col-xs-1"><input type="checkbox" name="select" value="select"/></td>
-            </tr>
-            <tr>
-              <td class="col-xs-1">10</td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-1"></td>
-			  <td class="col-xs-1"><input type="checkbox" name="select" value="select"/></td>
-            </tr>
-            <tr>
-              <td class="col-xs-1">11</td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-1"></td>
-			  <td class="col-xs-1"><input type="checkbox" name="select" value="select"/></td>
-            </tr>
-            <tr>
-              <td class="col-xs-1">12</td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			   <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-1"></td>
-			  <td class="col-xs-1"><input type="checkbox" name="select" value="select"/></td>
-            </tr>
+			<% var a = 1; %>
+			<% admin.forEach(function(admin) { %>
+			   
+		   <tr>
+		   <td class="col-xs-1"><%=a %></td>
+			   <td class="col-xs-4"><%= admin.title %></td>
+			   <td class="col-xs-4"><%= admin.name %></td>
+				   <td class="col-xs-4"><%= admin.type %></td>
+			   <td class="col-xs-4"><%= admin.location %></td>
+			   <td class="col-xs-4"><%= admin.semester %></td>
+			   <td class="col-xs-4"><%= admin.paid %></td>
+			   <td class="col-xs-1 objectID"  style="display:none;"> <%=admin._id %></td>
+				   <td class="col-xs-1"><input type="checkbox" name="select" class="selectApproved" /></td>
+					   </tr>
+				   <%	a++; %>
+		   <%}) %>
+            
           </tbody>
     </table>
 	
@@ -371,4 +166,5 @@
 				<span>&copy; 2018 SIU IST 412</span>
 		</footer>
 	</body>
+	<script src="../js/approved.js"></script> 
 </html>

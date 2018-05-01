@@ -9,6 +9,7 @@ const passport = require('passport');
 const flash = require('connect-flash');
 const session = require('express-session');
 const config = require('./config');
+var user = require('connect-roles');
 module.exports = function () {
 var app = express();
 
@@ -31,7 +32,7 @@ app.use(session({
 app.set('views', './app/views');
 app.set('view engine', 'ejs');
 
-
+// app.use(user.middleware());
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
