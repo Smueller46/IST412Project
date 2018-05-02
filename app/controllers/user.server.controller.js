@@ -62,7 +62,7 @@ exports.signup = function (req, res, next) {
             }
             req.login(user, function (err) {
                 if (err) return next(err);
-                return res.redirect('/home');
+                return res.redirect('/student/home');
             });
         });
     } else {

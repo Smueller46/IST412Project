@@ -10,8 +10,8 @@ module.exports = function (app) {
     app.route('/signin')
         .get(users.renderSignin)
         .post(passport.authenticate('local', {
-            successRedirect: '/home',
-            failureRedirect: '/signin',
+            successRedirect: 'student/home',
+            failureRedirect: 'public/nyancaterror',
             failureFlash: true
         }));
     // app.route('/logout', )

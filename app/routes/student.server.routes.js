@@ -1,18 +1,19 @@
 var student = require('../controllers/student.server.controller');
 var scholarship = require('../controllers/scholarship.server.controller');
+var check = require('../../config/authorisation')
 module.exports = function (app) {
 
     app.route('/student/home')
-    .get(student.renderHome)
+    .get( check.loggedIn, student.renderHome, )
     .post(student.saveFile);
 
     app.route('/student/appInternships')
-    .get(student.renderAppInternship);
+    .get(check.loggedIn, student.renderAppInternship);
 
     app.route('/student/searchInternship')
-    .get(student.renderSearchInternship);
+    .get(check.loggedIn, student.renderSearchInternship);
 
     app.route('/student/scholarships')
-    .get(scholarship.renderSearchScholarships);
+    .get(check.loggedIn, scholarship.renderSearchScholarships);
 }
    

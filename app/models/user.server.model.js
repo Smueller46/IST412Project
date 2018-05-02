@@ -28,7 +28,7 @@ const UserSchema = new Schema({
 	state: String,
 	zipCode: Number,
 	gradYear: { type: Number, min: 2018, max: 2040},
-	gpa: {type: Number, min: 0.0, max: [4.0, 'higher than 4.0?']},
+	// gpa: {type: Number, min: 0.0, max: [4.0, 'higher than 4.0?']},
 	industry: String,
 	securityQuestion: String,
 	securityAnswer: String,
@@ -66,12 +66,12 @@ const UserSchema = new Schema({
 		// Create a default 'created' value
 		default: Date.now
 	},
-	roles: {
+	role: {
 		type: [{
-			type: String,
-			enum: ['student','faculty', 'admin']
+			type: String
+			// enum: ['student','faculty', 'admin']
 		}],
-		default: ['student'],
+		default: 'student'
 	},
 	created: {
 		type: Date,
