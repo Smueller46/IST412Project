@@ -13,6 +13,8 @@ module.exports = function (app) {
     app.route('/student/searchInternship')
     .get(check.loggedIn, student.renderSearchInternship);
 
+    app.route('/student/searchScholarships')
+    .get(scholarship.renderSearchScholarships)
     app.route('/student/scholarships')
     .get(check.loggedIn, scholarship.renderSearchScholarships);
 }
