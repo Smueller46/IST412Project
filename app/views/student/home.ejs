@@ -43,45 +43,96 @@
 			
 			<div class="text-center" id="navtopbuttons">
 				<div class="btn-group" role="group" aria-label="Basic example">
-				  <button type="button" class="btn btn-primary btn-lg" formaction="public/portal">Portal</button><!--BUTTON-->
-				  <button type="button" class="btn btn-primary btn-lg" formaction="student/home">Account</button><!--BUTTON-->
-				  <button type="button" class="btn btn-primary btn-lg" formaction="/student/scholarships">Scholarship</button><!--BUTTON-->
-				  <button type="button" class="btn btn-primary btn-lg" formaction="/student/appInternships">Internship</button><!--BUTTON-->
+				  <button type="button" class="btn btn-primary btn-lg">Portal</button><!--BUTTON-->
+				  <button type="button" class="btn btn-primary btn-lg">Account</button><!--BUTTON-->
+				  <button type="button" class="btn btn-primary btn-lg">Scholarship</button><!--BUTTON-->
+				  <button type="button" class="btn btn-primary btn-lg">Internship</button><!--BUTTON-->
 				</div>
 			</div>
 		</nav>
 	
 		<div class="container col-lg-2 col-md-2 col-sm-2"></div>
 		<div class="container-fluid col-lg-5 col-md-3 col-sm-2"> 
-			<div name="Personal Info">
-				<h3>Your Personal Information</h3>
+							<h3>Your Personal Information</h3>
 				<ul class="listorder">
-					<li><p>Dawg Tag:</p></li>
-					<li><p>First Name: </p> <label class="labels"><%= firstName %> </label> </li>
-					<li><p>LastName: </p> <labe class="labels" l><%= lastName %> </label></li> 
-					<li><p>Phone Number: <%= phone %></p></li>
-					<li><p>Email Address: <%=email %> </p></li>
-					<li><p>Address: <%=address %> </p></li>
-					<li><p>Graduating Class: <%=gradYear %></p></li>
-					<li><p>Student GPA: <%=gpa %></p></li>
-					<li><p>Industry:<%= industry %></p></li>
-					<li><p>Date of Birth: <%= birthdate %></p></li>
-					<li><p>Security Questions: <%= securityQuestion %></p></li>
-					<li><button type="edit" class="btn btn-outline-primary">Edit</button></li>
+					
+					<form>
+						<span class="loadNum">5566</span>
+						<br />
+						<span class="loadNum">5566</span>
+						<li><p>Dawg Tag:</p></li>
+						<div class="form-group">
+							<label class="labels" for="firstName">First Name: </label><br>
+							<span class="editable" type="test" id="firstName"><%= firstName %></span>
+						</div>
+						<div class="form-group">
+							<label class="labels" for="lastName">Last Name: </label><br>
+							<span class="editable" type="text" id="lastName"><%= lastName %></span>
+						</div>
+						<div class="form-group">
+							<label class="labels" for="phone">Phone: </label><br>
+							<span class="editable" type="text" id="phone" pattern="\d{3}[\-]\d{3}[\-]\d{4}"><%= phone %></span>
+						</div>
+						<div class="form-group">
+							<label class="labels" for="email">Email: </label><br>
+							<span class="editable" type="email" id="email" pattern="[a-z0-9._%+-]+@siu.edu$"><%= email %></span>
+						</div>
+						<div class="form-group">
+							<label class="labels" for="address">Address: </label><br>
+							<span class="editable" type="text" id="address"><%= address %></span>
+						</div>
+						<div class="form-group">
+							<label class="labels" for="gradYear">Graduation Year: </label><br>
+							<span class="editable" type="number" id="gradYear"><%= gradYear %></span>
+						</div>
+						<div class="form-group">
+							<label class="labels" for="city">City: </label><br>
+							<span class="editable" type="text" id="city" ><%= city %></span>
+						</div>
+						<div class="form-group">
+							<label class="labels" for="state">State: </label><br>
+							<span class="editable" type="text" id="state"><%= state %></span>
+						</div>
+						<div class="form-group">
+							<label class="labels" for="gpa">GPA: </label><br>
+							<span class="editable" type="text" id="gpa"><%= gpa %></span>
+						</div>
+						<div class="form-group">
+							<label class="labels" for="state">Industry: </label><br>
+							<span class="editable" type="text" id="city"><%= industry %></span>
+						</div>
+						<div class="form-group">
+							<label class="labels" for="birthdate">State: </label><br>
+							<span class="editable" type="date" id="birthdate"><%= birthdate %></span>
+						</div>
+						<li><p>Security Questions: <%= securityQuestion %></p></li>
+					</form>
+						<button onclick="submit" method="POST">Edit</button>
 				</ul>
-				<ul class="listorder">
-					<li><p><!--TEXT--></p></li>
-					<li><p><!--TEXT--></p></li>
-					<li><p><!--TEXT--></p></li>
-					<li><p><!--TEXT--></p></li>
-					<li><p><!--TEXT--></p></li>
-					<li><p><!--TEXT--></p></li>
-					<li><p><!--TEXT--></p></li>
-					<li><p><!--TEXT--></p></li>
-					<li><p><!--TEXT--></p></li>
-					<li><p><!--TEXT--></p></li>
-					<li><p><!--TEXT--></p></li>
-				</ul>
+				<script>
+						var switchToInput = function () {
+							console.log("goo")
+							var $input = $("<input>", {
+								val: $(this).text(),
+								id: $(this).attr("id"),
+								type: "text"
+							});
+							$input.addClass("editable");
+							$input.addClass("form-control");
+							$input.attr('id');
+							$(this).replaceWith($input);
+						};
+						var switchToSpan = function () {
+							var $span = $("<span>", {
+								text: $(this).val()
+							});
+							$span.addClass("editable");
+							$(this).replaceWith($span);
+							$span.on("click", switchToInput);
+						}
+						console.log("PRO")
+						$(".editable").on("click", switchToInput);
+				</script>
 				<div class="row"><p></p></div>
 			</div>
 		</div>
