@@ -51,9 +51,9 @@
 			<div id="text">
 				<div id="internship">
 					<div id="text-left">
-						<p><!--FIELD--><a href="#">Aid the Blodman's - Manny Incorperated</a></p>
-						<p><!--FIELD--><a href="#">Smart-Ass Scholarship - Ethan Inc</a></p>
-						<p><!--FIELD--><a href="#">Dat's good Weed - Felix Foundation</a></p>
+						<% scholarship.forEach(function(scholarship) { %>
+						<p><!--FIELD--><a href="#"> <%= scholarship.title %> - <%= scholarship.name %></a></p>
+						<% }); %>
 					</div>
 				</div>
 				</br>

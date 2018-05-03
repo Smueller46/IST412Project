@@ -96,7 +96,7 @@ console.log('showapproved');
             } else {
                 // Send a JSON representation of the article 
                 res.render('student/internshipSearch', { 
-                    result: result
+                    internship: result
                 });
             }
         })
