@@ -122,6 +122,7 @@ exports.listInternships = function (req, res, next) {
 }
 
 exports.update = function (req, res, next) {
+    console.log(req.body);
     User.findByIdAndUpdate(req.user.id, req.body, function (err, user) {
         if (err) {
             return next(err);

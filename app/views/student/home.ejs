@@ -43,17 +43,10 @@
 			
 			<div class="text-center" id="navtopbuttons">
 				<div class="btn-group" role="group" aria-label="Basic example">
-<<<<<<< HEAD
 				  <button type="button" class="btn btn-primary btn-lg" onclick =" window.location.href= '/portal'">Portal</button><!--BUTTON-->
 				  <button type="button" class="btn btn-primary btn-lg" onclick="window.location.href = '/home'" >Account</button><!--BUTTON-->
 				  <button type="button" class="btn btn-primary btn-lg"  onclick="window.location.href='/student/searchScholarships'">Scholarship</button><!--BUTTON-->
 				  <button type="button" class="btn btn-primary btn-lg" onclick="window.location.href= '/student/searchInternship'">Internship</button><!--BUTTON-->
-=======
-				  <button type="button" class="btn btn-primary btn-lg">Portal</button><!--BUTTON-->
-				  <button type="button" class="btn btn-primary btn-lg">Account</button><!--BUTTON-->
-				  <button type="button" class="btn btn-primary btn-lg">Scholarship</button><!--BUTTON-->
-				  <button type="button" class="btn btn-primary btn-lg">Internship</button><!--BUTTON-->
->>>>>>> 616a05ac368f791e790d068b314eae3f76b4275a
 				</div>
 			</div>
 		</nav>
@@ -63,7 +56,7 @@
 							<h3>Your Personal Information</h3>
 				<ul class="listorder">
 					
-					<form>
+					<form action="/editProfile" id="updateProfile" method="POST">
 						<span class="loadNum">5566</span>
 						<br />
 						<span class="loadNum">5566</span>
@@ -113,8 +106,9 @@
 							<span class="editable" type="date" id="birthdate"><%= birthdate %></span>
 						</div>
 						<li><p>Security Questions: <%= securityQuestion %></p></li>
+						<button type="submit" value="Submit" >submit</button>
 					</form>
-						<button onclick="submit" method="POST">Edit</button>
+						
 				</ul>
 				<script>
 						var switchToInput = function () {
@@ -139,6 +133,12 @@
 						}
 						console.log("PRO")
 						$(".editable").on("click", switchToInput);
+
+						$('updateProfile').on('submit', function(e) {
+        				e.preventDefault();
+       					$.post('/editProfile', $(this).serialize());
+						});
+
 				</script>
 				<div class="row"><p></p></div>
 			</div>

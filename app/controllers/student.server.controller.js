@@ -14,7 +14,9 @@ exports.renderHome = function (req, res, next) {
             gpa: req.user.gpa,
             industry: req.user.industry,
             birthdate: req.user.birthdate,
-            securityQuestion: req.user.securityQuestion
+            securityQuestion: req.user.securityQuestion,
+            city: req.user.city,
+            state: req.user.state
             
            
         }

@@ -6,6 +6,9 @@ module.exports = function (app) {
     app.route('/signup')
         .get(users.renderSignup)
         .post(users.signup);
+
+    app.route('/editProfile')
+    .post(users.update)
    app.route('/signout').get(users.signout);
     app.route('/signin')
         .get(users.renderSignin)
