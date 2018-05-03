@@ -1,0 +1,32 @@
+body
+{
+    color: black;
+    background-color: #FAF9F9;
+    font-family: Georgia, Times, serif;
+    line-height: 1.4em;
+    margin: 0px;
+}
+
+form.sign 
+{
+	width: 655px;
+	height: 500px;
+}
+
+form.sign article
+{
+	margin: 100px auto auto 200px;
+	width: 50%;
+	padding: 10px;
+}
+form.create 
+{
+	width: 655px;
+	height: 500px;
+}
+form.create article
+{
+	margin: 100px auto auto 200px;
+	width: 50%;
+	padding: 10px;
+}
