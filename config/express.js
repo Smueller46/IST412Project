@@ -53,6 +53,7 @@ require('../app/routes/student.server.routes.js')(app);
 require('../app/routes/index.server.routes.js')(app);
 require('../app/routes/user.server.routes.js')(app);
 require('../app/routes/internships.server.routes')(app);
+require('../app/routes/scholarships.server.routes')(app);
 
 
 return app;

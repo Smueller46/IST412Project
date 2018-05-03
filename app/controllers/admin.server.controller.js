@@ -147,18 +147,92 @@ console.log('showapproved');
             })
         }
         const internship = req.internship;
-    
-        // Try saving the updated article
-        // article.save((err) => {
-        //     if (err) {
-        //         // If an error occurs send the error message
-        //         return res.status(400).send({
-        //             message: getErrorMessage(err)
-        //         });
-        //     } else {
-        //         // Send a JSON representation of the article 
-        //         res.json(article);
-        //     }
-        // });
         console.log(req.body.status);
     };
+
+    exports.showApprovedSchol = function (req, res) {
+        console.log('showapproved');
+            var pendingApproved = [];
+            var adminApproved = []; 
+                // Use the model 'find' method to get a list of articles
+                scholarships.find({  'approved' : false, 'adminRejected' : { $ne : true }} ).sort('-name').exec((err, result) => {
+                    if (err) {
+                        // If an error occurs send the error message
+                        console.log(err)
+                        // return res.status(400).send({
+                        //     message: getErrorMessage(err)
+                        // });
+                    } else {
+                        // Send a JSON representation of the article 
+                        pendingApproved = result;
+        
+                        
+                
+                scholarships.find({  'approved' : true, 'adminRejected' : { $ne : true }} ).sort('-name').exec((err, result) => {
+                    if (err) {
+                        // If an error occurs send the error message
+                        console.log(err)
+                        // return res.status(400).send({
+                        //     message: getErrorMessage(err)
+                        // });
+                    } else {
+                        // Send a JSON representation of the article 
+                        adminApproved = result; 
+                         res.render('admin/Admin_scholarship', { 
+                             result: pendingApproved,
+                             admin: adminApproved
+                         });
+        
+                    }
+                });
+        
+            };    })
+        }
+
+        exports.updateSchol = function(req, res) {
+            //Get the article from the 'request' object
+            if (req.body.status == 'rejected') {
+                
+                rejectList = req.body.rejectList;
+                
+                rejectList.forEach(function(value) {
+                    valuetrim = value.trim();
+                    // console.log(value);
+                    scholarships.findByIdAndUpdate(valuetrim, {adminRejected: 'true'}, function (err, scholarships) {
+                        if (err) {
+                            // If an error occurs send the error message
+                            console.log(err)
+                            // return res.status(400).send({
+                            //       message: getErrorMessage(err)
+                            // });
+                        } else {
+                            res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
+                            res.redirect('/admin');
+                            console.log('redirected');
+                        }
+                    })
+                })
+            }
+    
+            else if (req.body.status == 'approved') {
+                console.log(req.body.approveList);
+                approveList = req.body.approveList;
+    
+                approveList.forEach(function(value) {
+                    valuetrim = value.trim();
+                    scholarships.findByIdAndUpdate(valuetrim, {approved: 'true' }, function (err, internship) {
+                        if (err) {
+                            // If an error occurs send the error message
+                            return res.status(400).send({
+                                err
+                              //  message: getErrorMessage(err)
+                            });
+                        } else {
+                            //sharatthh
+                            res.redirect('back');
+                        }
+                    })
+                })
+            }
+            console.log(req.body.status);
+        };

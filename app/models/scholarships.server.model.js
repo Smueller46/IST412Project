@@ -38,7 +38,14 @@ const scholarshipSchema = new Schema({
         type: String,
 
     },
+    paid : {
+        type: String,
+        default: null
+    },
     
+    adminRejected: {
+        type: Boolean
+    },
     approved: {
         type: Boolean,
         default: false
