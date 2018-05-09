@@ -44,12 +44,12 @@
 			
 			<div class="text-center" id="navtopbuttons">
 				<div class="btn-group" role="group" aria-label="Basic example">
-				  <button type="button" class="btn btn-primary btn-lg" onClick="window.location.href='../public/portal.ejs'">Portal</button><!--BUTTON-->
-				  <button type="button" class="btn btn-primary btn-lg" onClick="window.location.href='../student/home.ejs'">Account</button><!--BUTTON-->
-				  <button type="button" class="btn btn-primary btn-lg" onClick="window.location.href='../student/scholarshipSearch.ejs'">Scholarship</button><!--BUTTON-->
-				  <button type="button" class="btn btn-primary btn-lg" onClick="window.location.href='../student/internshipApplication.ejs'">Internship</button><!--BUTTON-->
+					<button type="button" class="btn btn-primary btn-lg" onclick =" window.location.href= '/portal'">Portal</button><!--BUTTON-->
+					<button type="button" class="btn btn-primary btn-lg" onclick="window.location.href = '/student/home'" >Account</button><!--BUTTON-->
+					<button type="button" class="btn btn-primary btn-lg"  onclick="window.location.href='/student/searchScholarships'">Scholarship</button><!--BUTTON-->
+					<button type="button" class="btn btn-primary btn-lg" onclick="window.location.href= '/student/searchInternship'">Internship</button><!--BUTTON-->
+					</div>
 				</div>
-			</div>
 		</nav>
 
  
@@ -77,11 +77,14 @@
             </tr>
           </thead>
           <tbody>
+						//pending admin
+						<% var a = 1; %>
+					<% pending.forEach(function(pending) { %>
             <tr>
-              <td class="col-xs-1">1</td>
-			  <td class="col-xs-4"></td>
-			  <td class="col-xs-4"></td>
-			    <td class="col-xs-4"></td>
+              <td class="col-xs-1"><%=a %></td>
+			  <td class="col-xs-4"> <%= pending.</td>
+			  <td class="col-xs-4"><%= pending. %></td>
+			    <td class="col-xs-4"> <% = pending. %> </td>
 			  <td class="col-xs-4"></td>
 			  <td class="col-xs-4"></td>
 			   <td class="col-xs-1"></td>

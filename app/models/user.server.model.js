@@ -61,6 +61,16 @@ const UserSchema = new Schema({
 	},
 	providerId: String,
 	providerData: {},
+	approved: {
+		type: Boolean,
+		default: false
+	},
+
+	adminRejected: {
+		type: Boolean,
+		default: false
+	},
+
 	created: {
 		type: Date,
 		// Create a default 'created' value

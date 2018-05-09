@@ -12,5 +12,9 @@ module.exports = function(app) {
     .post(admin.updateSchol)
     // app.route('/admin/scholarships')
     // .get('')
+
+    app.route('/admin/accounts')
+    .get(admin.renderApproval)
 };
+
 

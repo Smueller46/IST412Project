@@ -21,7 +21,7 @@
 				</div>
 				<p class="navtext" id="usertext">Welcome User<!--TEXT--></p>
 				<ul class="nav navbar-nav">
-					<li><button class="btn btn-outline-primary" type="button" onClick="window.location.href='../student/signin.ejs'"></button><!--LINK-->Sign Out!</li> <!--BUTTON-->
+					<li><button class="btn btn-outline-primary" type="button" onClick="window.location.href='/signout'"></button><!--LINK-->Sign Out!</li> <!--BUTTON-->
 				</ul>
 				<ul class="nav navbar-right">
 					<li class="col-sm-3 searchbox">
@@ -53,8 +53,8 @@
 					<button class="btn intern-btn">Database</button></p> <!--BUTTON-->
 				<div id="internship">
 					<div id="text-left">
-						<% internship.forEach(function(internship) { %>
-						<p><!--FIELD--><a href="#"><%= internship.title %> - <% internship.name %> </a></p>
+						<% result.forEach(function(result) { %>
+						<p><!--FIELD--><a href="#"><%= result.title %> - <%= result.name %> </a></p>
 							<% }); %>
 					</div>
 				</div>

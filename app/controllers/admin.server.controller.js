@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 // const Article = mongoose.model('Article');
 const Internship = mongoose.model('Internship');
 const scholarships = mongoose.model('scholarship');
+const users = mongoose.model('User');
 
 function getErrorMessage(err) {
     let message = '';
@@ -56,10 +57,10 @@ console.log('showapproved');
                 // });
             } else {
                 // Send a JSON representation of the article 
-                adminApproved = result; 
+                
                  res.render('admin/Admin_internship', { 
-                     result: pendingApproved,
-                     admin: adminApproved
+                     pending: pendingApproved,
+                     admin: result
                  });
 
             }
@@ -86,7 +87,7 @@ console.log('showapproved');
     }
 
     exports.read = function (req, res) {
-        Internship.find({adminApproved : 'true'}, 'title name').exec((err, result) => {
+        Internship.find({ 'approved' : true }).exec((err, result) => {
             if (err) {
                 // If an error occurs send the error message
                 console.log(err)
@@ -94,10 +95,11 @@ console.log('showapproved');
                 //     message: getErrorMessage(err)
                 // });
             } else {
+                console.log(result.toString())
                 // Send a JSON representation of the article 
-                res.render('student/internshipSearch', { 
-                    internship: result
-                });
+                // res.render('student/internshipSearch', { 
+                //     result: result
+            // });
             }
         })
     }
@@ -188,7 +190,35 @@ console.log('showapproved');
         
             };    })
         }
+        exports.renderAccounts = function( req, res) {
 
+            users.find({'approved' : true}).sort('-username').exec(( err, adminApproved ) => {
+                if(err) {
+                    // If an error occurs send the error message
+                    console.log(err)
+                    // return res.status(400).send({
+                    //     message: getErrorMessage(err)
+                    // });
+                } else {
+
+                
+            
+            users.find({'approved' : false, 'adminRejected' : { $ne : true}}).sort('-username').exec((err, pendingApproved) => {
+                if (err) {
+                    // If an error occurs send the error message
+                    console.log(err)
+                    // return res.status(400).send({
+                    //     message: getErrorMessage(err)
+                    // });
+                } else {
+                    // Send a JSON representation of the article 
+                   
+                     res.render('admin/Admin_Accounts', { 
+                         pending: pendingApproved,
+                         admin: adminApproved
+                     });
+            };
+        })}})};
         exports.updateSchol = function(req, res) {
             //Get the article from the 'request' object
             if (req.body.status == 'rejected') {
@@ -235,4 +265,4 @@ console.log('showapproved');
                 })
             }
             console.log(req.body.status);
-        };
+        }

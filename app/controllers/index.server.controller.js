@@ -3,5 +3,5 @@ exports.render = function (req, res, next) {
 };
 
 exports.renderError = function (req, res) {
-    res.render('public/nyancaterror')
+    res.render('public/nyancaterror', {message: req.flash('error')})
 }

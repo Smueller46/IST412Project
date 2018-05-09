@@ -3,7 +3,7 @@ const scholarships = mongoose.model('scholarship');
 
 
 exports.renderSearchScholarships = function (req, res,) {
-    scholarships.find({adminApproved : 'true'}, 'title name').exec((err, result) => {
+    scholarships.find({ 'approved' : 'true'}, 'title name').exec((err, result) => {
         if (err) {
             // If an error occurs send the error message
             console.log(err)

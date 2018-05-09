@@ -132,3 +132,21 @@ exports.hasAuthorization = function(req, res, next) {
     // Call the next middleware
     next();
 };
+
+exports.renderSearchInternship = function (req, res) {
+    Internship.find({ 'approved' : true }).exec((err, result) => {
+        if (err) {
+            // If an error occurs send the error message
+            console.log(err)
+            // return res.status(400).send({
+            //     message: getErrorMessage(err)
+            // });
+        } else {
+            console.log(result.toString())
+           // Send a JSON representation of the article 
+            res.render('student/internshipSearch', { 
+                result: result
+        });
+        }
+    })
+}

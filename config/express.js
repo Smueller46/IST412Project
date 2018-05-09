@@ -35,7 +35,6 @@ app.use(session({
 app.set('views', './app/views');
 app.set('view engine', 'ejs');
 
-// app.use(user.middleware());
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());

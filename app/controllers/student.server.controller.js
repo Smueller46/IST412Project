@@ -42,3 +42,4 @@ exports.renderSearchInternship = function (req, res, next) {
     // if(req.isAuthenticated()) {
         res.render('student/internshipSearch')
 }
+

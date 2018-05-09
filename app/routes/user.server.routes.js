@@ -14,7 +14,7 @@ module.exports = function (app) {
         .get(users.renderSignin)
         .post(passport.authenticate('local', {
             successRedirect: 'student/home',
-            failureRedirect: 'public/nyancaterror',
+            failureRedirect: '/error',
             failureFlash: true
         }));
     // app.route('/logout', )

@@ -79,17 +79,17 @@
           </thead>
           <tbody>
 							<% var a = 1; %>
-						 <% result.forEach(function(result) { %>
+						 <% pending.forEach(function(result) { %>
 							
 						<tr>
 						<td class="col-xs-1"><%=a %></td>
-							<td class="col-xs-4"><%= result.title %></td>
-							<td class="col-xs-4"><%= result.name %></td>
-								<td class="col-xs-4"><%= result.type %></td>
-							<td class="col-xs-4"><%= result.location %></td>
-							<td class="col-xs-4"><%= result.semester %></td>
-							<td class="col-xs-4"><%= result.paid %></td>
-							<td class="col-xs-1 objectID"  style="display:none;"> <%=result._id %></td>
+							<td class="col-xs-4"><%= pending.title %></td>
+							<td class="col-xs-4"><%= pending.name %></td>
+								<td class="col-xs-4"><%= pending.type %></td>
+							<td class="col-xs-4"><%= pending.location %></td>
+							<td class="col-xs-4"><%= pending.semester %></td>
+							<td class="col-xs-4"><%= pending.paid %></td>
+							<td class="col-xs-1 objectID"  style="display:none;"> <%=pending._id %></td>
 								<td class="col-xs-1"><input type="checkbox" name="select" class="selectApproved" /></td>
 									</tr>
 								<%	a++; %>

@@ -19,6 +19,18 @@ module.exports = function () {
                     message: 'Invalid password'
                 });
             }
+
+            if (user.approved == false && user.adminRejected == false) {
+                return done(null, false, {
+                    message: 'Account pending '
+                });
+            }
+
+            if (user.adminRejected == true ) {
+                return done(null, false, {
+                    message: 'Account was rejected by administration'
+                });
+            }
             return done(null, user);
         });
     }));
