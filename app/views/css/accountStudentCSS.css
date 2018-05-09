@@ -27,3 +27,8 @@
 {
 	line-height:25px;
 }
+
+#submitEdits
+{
+	display: none;
+}

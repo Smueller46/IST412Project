@@ -53,93 +53,90 @@
 	
 		<div class="container col-lg-2 col-md-2 col-sm-2"></div>
 		<div class="container-fluid col-lg-5 col-md-3 col-sm-2"> 
-							<h3>Your Personal Information</h3>
-				<ul class="listorder">
-					
-					<form action="/editProfile" id="updateProfile" method="POST">
-						<span class="loadNum">5566</span>
-						<br />
-						<span class="loadNum">5566</span>
-						<li><p>Dawg Tag:</p></li>
-						<div class="form-group">
-							<label class="labels" for="firstName">First Name: </label><br>
-							<span class="editable" type="test" id="firstName"><%= firstName %></span>
-						</div>
-						<div class="form-group">
-							<label class="labels" for="lastName">Last Name: </label><br>
-							<span class="editable" type="text" id="lastName"><%= lastName %></span>
-						</div>
-						<div class="form-group">
-							<label class="labels" for="phone">Phone: </label><br>
-							<span class="editable" type="text" id="phone" pattern="\d{3}[\-]\d{3}[\-]\d{4}"><%= phone %></span>
-						</div>
-						<div class="form-group">
-							<label class="labels" for="email">Email: </label><br>
-							<span class="editable" type="email" id="email" pattern="[a-z0-9._%+-]+@siu.edu$"><%= email %></span>
-						</div>
-						<div class="form-group">
-							<label class="labels" for="address">Address: </label><br>
-							<span class="editable" type="text" id="address"><%= address %></span>
-						</div>
-						<div class="form-group">
-							<label class="labels" for="gradYear">Graduation Year: </label><br>
-							<span class="editable" type="number" id="gradYear"><%= gradYear %></span>
-						</div>
-						<div class="form-group">
-							<label class="labels" for="city">City: </label><br>
-							<span class="editable" type="text" id="city" ><%= city %></span>
-						</div>
-						<div class="form-group">
-							<label class="labels" for="state">State: </label><br>
-							<span class="editable" type="text" id="state"><%= state %></span>
-						</div>
-						<div class="form-group">
-							<label class="labels" for="gpa">GPA: </label><br>
-							<span class="editable" type="text" id="gpa"><%= gpa %></span>
-						</div>
-						<div class="form-group">
-							<label class="labels" for="state">Industry: </label><br>
-							<span class="editable" type="text" id="city"><%= industry %></span>
-						</div>
-						<div class="form-group">
-							<label class="labels" for="birthdate">State: </label><br>
-							<span class="editable" type="date" id="birthdate"><%= birthdate %></span>
-						</div>
-						<li><p>Security Questions: <%= securityQuestion %></p></li>
-						<button type="submit" value="Submit" >submit</button>
-					</form>
-						
-				</ul>
-				<script>
-						var switchToInput = function () {
-							console.log("goo")
-							var $input = $("<input>", {
-								val: $(this).text(),
-								id: $(this).attr("id"),
-								type: "text"
-							});
-							$input.addClass("editable");
-							$input.addClass("form-control");
-							$input.attr('id');
-							$(this).replaceWith($input);
-						};
-						var switchToSpan = function () {
-							var $span = $("<span>", {
-								text: $(this).val()
-							});
-							$span.addClass("editable");
-							$(this).replaceWith($span);
-							$span.on("click", switchToInput);
-						}
-						console.log("PRO")
-						$(".editable").on("click", switchToInput);
-
-						$('updateProfile').on('submit', function(e) {
-        				e.preventDefault();
-       					$.post('/editProfile', $(this).serialize());
+			<h3>Your Personal Information</h3>
+			
+			<form action="/editProfile" id="updateProfile" method="POST">
+				<b>Dawg Tag - <%= dawgTag %></b>
+				<br>
+				<br>
+				<div class="form-group">
+					<label class="labels" for="firstName">First Name: </label><br>
+					<span class="editable" type="test" id="firstName"><%= firstName %></span>
+				</div>
+				<div class="form-group">
+					<label class="labels" for="lastName">Last Name: </label><br>
+					<span class="editable" type="text" id="lastName"><%= lastName %></span>
+				</div>
+				<div class="form-group">
+					<label class="labels" for="phone">Phone: </label><br>
+					<span class="editable" type="text" id="phone" pattern="\d{3}[\-]\d{3}[\-]\d{4}"><%= phone %></span>
+				</div>
+				<div class="form-group">
+					<label class="labels" for="email">Email: </label><br>
+					<span class="editable" type="email" id="email" pattern="[a-z0-9._%+-]+@siu.edu$"><%= email %></span>
+				</div>
+				<div class="form-group">
+					<label class="labels" for="address">Address: </label><br>
+					<span class="editable" type="text" id="address"><%= address %></span>
+				</div>
+				<div class="form-group">
+					<label class="labels" for="gradYear">Graduation Year: </label><br>
+					<span class="editable" type="number" id="gradYear"><%= gradYear %></span>
+				</div>
+				<div class="form-group">
+					<label class="labels" for="city">City: </label><br>
+					<span class="editable" type="text" id="city" ><%= city %></span>
+				</div>
+				<div class="form-group">
+					<label class="labels" for="state">State: </label><br>
+					<span class="editable" type="text" id="state"><%= state %></span>
+				</div>
+				<div class="form-group">
+					<label class="labels" for="gpa">GPA: </label><br>
+					<span class="editable" type="text" id="gpa"><%= gpa %></span>
+				</div>
+				<div class="form-group">
+					<label class="labels" for="state">Industry: </label><br>
+					<span class="editable" type="text" id="city"><%= industry %></span>
+				</div>
+				<div class="form-group">
+					<label class="labels" for="birthdate">Birthday: </label><br>
+					<span class="editable" type="date" id="birthdate" name="birthdate"><%= birthdate %></span>
+				</div>
+				<button type="submit" value="Submit" class="btn btn-outline-primary" id="submitEdits">Submit Changes</button>
+			</form>
+			<script>
+					var switchToInput = function () {
+						console.log("goo")
+						var $input = $("<input>", {
+							val: $(this).text(),
+							id: $(this).attr("id"),
+							name: $(this).attr("id"),
+							type: $(this).attr("type")
 						});
+						//$input.addClass("editable")
+						$("#submitEdits").show();
+						$input.addClass("form-control");
+						$input.attr('id');
+						$(this).replaceWith($input);
+					};
+					var switchToSpan = function () {
+						var $span = $("<span>", {
+							text: $(this).val()
+						});
+						$span.addClass("editable");
+						$(this).replaceWith($span);
+						$span.on("click", switchToInput);
+					}
+					console.log("PRO");
+					$(".editable").on("click", switchToInput);
 
-				</script>
+					/*$('updateProfile').on('submit', function(e) {
+					e.preventDefault();
+					$.post('/editProfile', $(this).serialize());
+					});*/
+
+			</script>
 				<div class="row"><p></p></div>
 			</div>
 		</div>
