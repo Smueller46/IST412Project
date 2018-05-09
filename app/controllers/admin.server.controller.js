@@ -1,9 +1,9 @@
 // Load the module dependencies
 const mongoose = require('mongoose');
 // const Article = mongoose.model('Article');
-const Internship = mongoose.model('Internship');
+const Internship = mongoose.model('internship');
 const scholarships = mongoose.model('scholarship');
-const users = mongoose.model('User');
+const users = mongoose.model('user');
 
 function getErrorMessage(err) {
     let message = '';
@@ -27,15 +27,18 @@ function getErrorMessage(err) {
 
 
 exports.renderApproval = function (req, res) {
-    res.render('admin/Admin_internship')
+    res.render('admin/Admin_Accounts')
 }
 
 exports.showApproved = function (req, res) {
 console.log('showapproved');
     var pendingApproved = [];
     var adminApproved = []; 
+    // model = mongoose.model(req.body.type);
+     const type = (req.path.split("/").slice(-1));
+     const model = mongoose.model(type);
         // Use the model 'find' method to get a list of articles
-        Internship.find({  'approved' : false, 'adminRejected' : { $ne : true }} ).sort('-name').exec((err, result) => {
+        model.find({  'approved' : false, 'adminRejected' : { $ne : true }} ).sort('-name').exec((err, result) => {
             if (err) {
                 // If an error occurs send the error message
                 console.log(err)
@@ -48,7 +51,7 @@ console.log('showapproved');
 
                 
         
-        Internship.find({  'approved' : true, 'adminRejected' : { $ne : true }} ).sort('-name').exec((err, result) => {
+        model.find({  'approved' : true, 'adminRejected' : { $ne : true }} ).sort('-name').exec((err, result) => {
             if (err) {
                 // If an error occurs send the error message
                 console.log(err)
@@ -58,7 +61,7 @@ console.log('showapproved');
             } else {
                 // Send a JSON representation of the article 
                 
-                 res.render('admin/Admin_internship', { 
+                 res.render('admin/Admin_' + type, { 
                      pending: pendingApproved,
                      admin: result
                  });
@@ -70,6 +73,7 @@ console.log('showapproved');
 }
 
     exports.showAdminApproved = function (req, res) {
+        
         Internship.find({ 'approved' : true}).sort('-name').exec((err, result) => {
             if (err) {
                 // If an error occurs send the error message
@@ -112,7 +116,8 @@ console.log('showapproved');
             rejectList.forEach(function(value) {
                 valuetrim = value.trim();
                 // console.log(value);
-                Internship.findByIdAndUpdate(valuetrim, {adminRejected: 'true'}, function (err, internship) {
+                model = mongoose.model(req.body.type);
+                model.findByIdAndUpdate(valuetrim, {adminRejected: 'true'}, function (err, internship) {
                     if (err) {
                         // If an error occurs send the error message
                         console.log(err)
@@ -131,10 +136,10 @@ console.log('showapproved');
         else if (req.body.status == 'approved') {
             console.log(req.body.approveList);
             approveList = req.body.approveList;
-
+            model = mongoose.model(req.body.type);
             approveList.forEach(function(value) {
                 valuetrim = value.trim();
-                Internship.findByIdAndUpdate(valuetrim, {approved: 'true' }, function (err, internship) {
+                model.findByIdAndUpdate(valuetrim, {approved: 'true' }, function (err, internship) {
                     if (err) {
                         // If an error occurs send the error message
                         return res.status(400).send({
@@ -153,7 +158,7 @@ console.log('showapproved');
     };
 
     exports.showApprovedSchol = function (req, res) {
-        console.log('showapproved');
+        
             var pendingApproved = [];
             var adminApproved = []; 
                 // Use the model 'find' method to get a list of articles

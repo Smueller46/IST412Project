@@ -1,4 +1,4 @@
-const User = require('mongoose').model('User');
+const User = require('mongoose').model('user');
 passport = require('passport');
 
 exports.renderHome = function (req, res, next) {

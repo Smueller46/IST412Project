@@ -72,4 +72,4 @@ const InternshipSchema = new Schema({
 });
 
 // Create the 'Article' model out of the 'ArticleSchema'
-mongoose.model('Internship', InternshipSchema);
+mongoose.model('internship', InternshipSchema);

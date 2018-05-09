@@ -1,7 +1,7 @@
 // Load the module dependencies
 const mongoose = require('mongoose');
 // const Article = mongoose.model('Article');
-const Internship = mongoose.model('Internship');
+const Internship = mongoose.model('internship');
 const scholarships = mongoose.model('scholarship');
 // Create a new error handling controller method
 const getErrorMessage = function(err) {

@@ -1,7 +1,7 @@
 const passport = require('passport');
 const mongoose = require('mongoose');
 module.exports = function () {
-    const User = mongoose.model('User');
+    const User = mongoose.model('user');
     passport.serializeUser((user, done) => {
         done(null, user.id);
     });

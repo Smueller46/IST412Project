@@ -1,5 +1,20 @@
 var list =[];
 $(document).ready(function(){
+    var type = null;
+    var route = null;
+    var title = $(document).find("title").text();
+    if(title == 'Admin_internship') {
+        type = 'internship';
+        route = 'internship';
+    }
+    else if (title == 'Admin_account') {
+        type ="user";
+        route = "user";
+    }
+    else if (title == 'Admin_scholarship') {
+        type = 'scholarship';
+        route = 'scholarship';
+    }
     $('input:checkbox[name=select]').change( function () {
         var isChecked = $(this).is(":checked");        
         if(isChecked) {
@@ -14,21 +29,24 @@ $(document).ready(function(){
     });
     $('button').click(function(){
         var button = $(this).val();
+        console.log(route + " " + type)
         if(button == 'rejected' && list.length > 0){
             for(var i =0; i <list.length; i++){
                 console.log("id's to be rejected:" + list[i]);
             }
-            $.post("/admin/internships", {
+            $.post("/admin/" + route, {
                 rejectList: list,
-                status: 'rejected'
+                status: 'rejected',
+                type: type
             });
         } else if (button == 'approved' && list.length > 0){
             for(var i =0; i <list.length; i++){
                 console.log("id's to be approved:" + list[i]);
             }
-            $.post("/admin/internships", {
+            $.post("/admin/" + route, {
                 approveList: list,
-                status: 'approved'
+                status: 'approved',
+                type: type
             });
         }
         $('input:checkbox[name=select]').attr('checked',false);

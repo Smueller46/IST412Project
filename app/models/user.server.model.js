@@ -148,4 +148,4 @@ UserSchema.set('toJSON', {
 });
 
 // Create the 'User' model out of the 'UserSchema'
-mongoose.model('User', UserSchema);
+mongoose.model('user', UserSchema);

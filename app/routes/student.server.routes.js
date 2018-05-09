@@ -5,7 +5,7 @@ var check = require('../../config/authorisation')
 module.exports = function (app) {
 
     app.route('/student/home')
-    .get( check.loggedIn, student.renderHome, )
+    .get( check.loggedIn, student.renderHome)
     .post(student.saveFile);
 
     app.route('/student/appInternships')
