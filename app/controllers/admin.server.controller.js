@@ -194,7 +194,7 @@ console.log('showapproved');
                 });
         
             };    })
-        }
+        };
         exports.renderAccounts = function( req, res) {
 
             users.find({'approved' : true}).sort('-username').exec(( err, adminApproved ) => {

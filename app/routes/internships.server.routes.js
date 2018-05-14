@@ -6,8 +6,8 @@ module.exports = function(app) {
         .get(internships.renderInternships)
         .post(internships.create);
 
-    app.route( '/internshipSearch')
-    .get(check.loggedIn, admin.read);
+    // app.route( '/internshipSearch')
+    // .get(check.loggedIn, admin.read);
 
     // app.route('/internships/reject')
     // .get(internships.reject)

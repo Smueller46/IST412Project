@@ -24,14 +24,14 @@
 					<li><button class="btn btn-outline-primary" type="button" onClick="window.location.href='/signout'"/><!--LINK-->Sign Out!</li> <!--BUTTON-->
 				</ul>
 				<ul class="nav navbar-right">
-					<li class="col-sm-3 searchbox">
-						<form class="form-inline mr-auto">
-							<div class="md-form mt-0">
-								<input class="form-control" type="text" placeholder="Search" aria-label="Search"> <!--SEARCH-->
-								<i class="fa fa-search text-white ml-3" aria-hidden="true"></i> 
-							</div>
-						</form>
-					</li>
+						<li class="col-sm-3 searchbox">
+								<form class="form-inline mr-auto" action='/student/searchResults' method="POST">
+									<div class="md-form mt-0">
+										<input class="form-control" name= 'search' type="text" placeholder="Search" aria-label="Search"><!--SEARCH-->
+										<i class="fa fa-search text-white ml-3" aria-hidden="true"></i>
+									</div>
+								</form>
+							</li>
 				</ul>
 			</div>
 			<h1 class="text-center" id="pagetext">Scholarships</h1>

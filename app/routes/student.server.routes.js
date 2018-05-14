@@ -8,15 +8,20 @@ module.exports = function (app) {
     .get( check.loggedIn, student.renderHome)
     .post(student.saveFile);
 
-    app.route('/student/appInternships')
-    .get(check.loggedIn, student.renderAppInternship);
+    app.route('/student/appInternships/:id')
+    .get(check.loggedIn, internship.renderAppInternship)
+    .post(check.loggedIn, internship.appInternship);
 
     app.route('/student/searchInternship')
     .get(check.loggedIn, internship.renderSearchInternship);
 
+    // app.route('/student/searchScholarships')
+    // .get(scholarship.renderSearchScholarships)
+
     app.route('/student/searchScholarships')
-    .get(scholarship.renderSearchScholarships)
-    app.route('/student/scholarships')
     .get(check.loggedIn, scholarship.renderSearchScholarships);
+
+    app.route('/student/searchResults')
+    .post(student.renderSearchResults)
 }
    

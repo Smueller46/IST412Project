@@ -21,18 +21,21 @@
 						height="120"alt="HoeIcon"></a>
 				</div>
 				<p class="navtext" id="usertext">Welcome User<!--TEXT--></p>
-				<div class="container col-lg-1 col-md-1 col-sm-1 col-xs-2"></div>
+				<!-- <div class="container col-lg-1 col-md-1 col-sm-1 col-xs-2"></div> -->
 					<!-- <div class="container col-lg-1 col-md-1 col-sm-1 col-xs-2">
 						<ul class="nav navbar-nav">
 							<li><button class="btn btn-outline-primary" type="button" onClick="window.location.href='../student/signin.ejs'"/>Login or Sign Up!</li>
 						</ul>
 					</div> -->
+					<ul class="nav navbar-nav">
+							<li><button class="btn btn-outline-primary" type="button" onClick="window.location.href='/signout'"/><!--LINK-->Sign Out!</li> <!--BUTTON-->
+						</ul>
 				<div class="container col-lg-1 col-md-1 col-sm-1 col-xs-2"></div>
 				<ul class="nav navbar-right">
 					<li class="col-sm-3 searchbox">
-						<form class="form-inline mr-auto">
+						<form class="form-inline mr-auto" action='/student/searchResults' method="POST">
 							<div class="md-form mt-0">
-								<input class="form-control" type="text" placeholder="Search" aria-label="Search"><!--SEARCH-->
+								<input class="form-control" name= 'search' type="text" placeholder="Search" aria-label="Search"><!--SEARCH-->
 								<i class="fa fa-search text-white ml-3" aria-hidden="true"></i>
 							</div>
 						</form>
@@ -56,52 +59,52 @@
 			<h3>Your Personal Information</h3>
 			
 			<form action="/editProfile" id="updateProfile" method="POST">
-				<b>Dawg Tag - <%= dawgTag %></b>
+				<b>Dawg Tag - <%= student.dawgTag %></b>
 				<br>
 				<br>
 				<div class="form-group">
 					<label class="labels" for="firstName">First Name: </label><br>
-					<span class="editable" type="test" id="firstName"><%= firstName %></span>
+					<span class="editable" type="test" id="firstName"><%= student.firstName %></span>
 				</div>
 				<div class="form-group">
 					<label class="labels" for="lastName">Last Name: </label><br>
-					<span class="editable" type="text" id="lastName"><%= lastName %></span>
+					<span class="editable" type="text" id="lastName"><%= student.lastName %></span>
 				</div>
 				<div class="form-group">
 					<label class="labels" for="phone">Phone: </label><br>
-					<span class="editable" type="text" id="phone" pattern="\d{3}[\-]\d{3}[\-]\d{4}"><%= phone %></span>
+					<span class="editable" type="text" id="phone" pattern="\d{3}[\-]\d{3}[\-]\d{4}"><%= student.phone %></span>
 				</div>
 				<div class="form-group">
 					<label class="labels" for="email">Email: </label><br>
-					<span class="editable" type="email" id="email" pattern="[a-z0-9._%+-]+@siu.edu$"><%= email %></span>
+					<span class="editable" type="email" id="email" pattern="[a-z0-9._%+-]+@siu.edu$"><%= student.email %></span>
 				</div>
 				<div class="form-group">
 					<label class="labels" for="address">Address: </label><br>
-					<span class="editable" type="text" id="address"><%= address %></span>
+					<span class="editable" type="text" id="address"><%= student.address %></span>
 				</div>
 				<div class="form-group">
 					<label class="labels" for="gradYear">Graduation Year: </label><br>
-					<span class="editable" type="number" id="gradYear"><%= gradYear %></span>
+					<span class="editable" type="number" id="gradYear"><%= student.gradYear %></span>
 				</div>
 				<div class="form-group">
 					<label class="labels" for="city">City: </label><br>
-					<span class="editable" type="text" id="city" ><%= city %></span>
+					<span class="editable" type="text" id="city" ><%= student.city %></span>
 				</div>
 				<div class="form-group">
 					<label class="labels" for="state">State: </label><br>
-					<span class="editable" type="text" id="state"><%= state %></span>
+					<span class="editable" type="text" id="state"><%= student.state %></span>
 				</div>
 				<div class="form-group">
 					<label class="labels" for="gpa">GPA: </label><br>
-					<span class="editable" type="text" id="gpa"><%= gpa %></span>
+					<span class="editable" type="text" id="gpa"><%= student.gpa %></span>
 				</div>
 				<div class="form-group">
 					<label class="labels" for="state">Industry: </label><br>
-					<span class="editable" type="text" id="city"><%= industry %></span>
+					<span class="editable" type="text" id="city"><%= student.industry %></span>
 				</div>
 				<div class="form-group">
 					<label class="labels" for="birthdate">Birthday: </label><br>
-					<span class="editable" type="date" id="birthdate" name="birthdate"><%= birthdate %></span>
+					<span class="editable" type="date" id="birthdate" name="birthdate"><%= student.birthdate %></span>
 				</div>
 				<button type="submit" value="Submit" class="btn btn-outline-primary" id="submitEdits">Submit Changes</button>
 			</form>

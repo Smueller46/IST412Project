@@ -56,6 +56,10 @@ const scholarshipSchema = new Schema({
         ref: 'User'
     }
 });
-
+scholarshipSchema.index ( { 
+    title : "text",
+    name : "text",
+    description: "text",
+    requirements: "text"});
 // Create the 'Article' model out of the 'ArticleSchema'
 mongoose.model('scholarship', scholarshipSchema);

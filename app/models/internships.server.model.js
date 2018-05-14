@@ -1,7 +1,7 @@
 // Load the module dependencies
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-
+const options = {discriminatorKey: 'kind'};
 // Define a new 'ArticleSchema'
 const InternshipSchema = new Schema({
     created: {
@@ -72,4 +72,13 @@ const InternshipSchema = new Schema({
 });
 
 // Create the 'Article' model out of the 'ArticleSchema'
+InternshipSchema.index ( { 
+    title: "text",
+    name: "text",
+    skills: "text",
+    type: "text",
+    description: "text",
+    semester: "text",
+    location: "text"
+});
 mongoose.model('internship', InternshipSchema);

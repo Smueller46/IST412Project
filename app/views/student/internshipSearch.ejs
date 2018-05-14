@@ -21,17 +21,17 @@
 				</div>
 				<p class="navtext" id="usertext">Welcome User<!--TEXT--></p>
 				<ul class="nav navbar-nav">
-					<li><button class="btn btn-outline-primary" type="button" onClick="window.location.href='/signout'"></button><!--LINK-->Sign Out!</li> <!--BUTTON-->
-				</ul>
+						<li><button class="btn btn-outline-primary" type="button" onClick="window.location.href='/signout'"/><!--LINK-->Sign Out!</li> <!--BUTTON-->
+					</ul>
 				<ul class="nav navbar-right">
-					<li class="col-sm-3 searchbox">
-						<form class="form-inline mr-auto">
-							<div class="md-form mt-0">
-								<input class="form-control" type="text" placeholder="Search" aria-label="Search"> <!--SEARCH-->
-								<i class="fa fa-search text-white ml-3" aria-hidden="true"></i> 
-							</div>
-						</form>
-					</li>
+						<li class="col-sm-3 searchbox">
+								<form class="form-inline mr-auto" action='/student/searchResults' method="POST">
+									<div class="md-form mt-0">
+										<input class="form-control" name= 'search' type="text" placeholder="Search" aria-label="Search"><!--SEARCH-->
+										<i class="fa fa-search text-white ml-3" aria-hidden="true"></i>
+									</div>
+								</form>
+							</li>
 				</ul>
 			</div>
 			<h1 class="text-center" id="pagetext">Internships</h1>
@@ -54,7 +54,9 @@
 				<div id="internship">
 					<div id="text-left">
 						<% result.forEach(function(result) { %>
-						<p><!--FIELD--><a href="#"><%= result.title %> - <%= result.name %> </a></p>
+
+							
+						<p><!--FIELD--><a href="/student/appInternships/<%= result._id %>" </a> ><%= result.title %> - <%= result.name %> </a></p>
 							<% }); %>
 					</div>
 				</div>

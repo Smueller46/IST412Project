@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 // const Article = mongoose.model('Article');
 const Internship = mongoose.model('internship');
 const scholarships = mongoose.model('scholarship');
+const application = mongoose.model('application');
 // Create a new error handling controller method
 const getErrorMessage = function(err) {
     if (err.errors) {
@@ -142,7 +143,6 @@ exports.renderSearchInternship = function (req, res) {
             //     message: getErrorMessage(err)
             // });
         } else {
-            console.log(result.toString())
            // Send a JSON representation of the article 
             res.render('student/internshipSearch', { 
                 result: result
@@ -150,3 +150,55 @@ exports.renderSearchInternship = function (req, res) {
         }
     })
 }
+
+exports.renderAppInternship = function (req, res, next) {
+    // if(req.isAuthenticated()) {
+       
+        Internship.findById(req.params.id, function (err, result)  {
+            if (err) {
+                // If an error occurs send the error message
+            console.log(err)
+            // return res.status(400).send({
+            //     message: getErrorMessage(err)
+            // });
+        } else {
+        
+             if (result.skills.includes(',')) {
+                 var skillsArray = result.skills.split(',');
+                 res.render('student/internshipApplication', {
+                    internship: result,
+                    skills: skillsArray
+
+                })
+             }
+             else {          
+           res.render('student/internshipApplication', {
+            internship: result
+        })}
+            }
+        })
+    
+};
+
+exports.appInternship = function (req, res) {
+    console.log(req.user._id);
+    console.log(req.params.id);
+    var apply = new application( {
+        contactEmail: req.body.contactEmail,
+        contactPhone: req.body.contactPhone,
+         internship : req.params.id,
+         user : req.user._id
+     }); 
+     apply.save((err) => {
+        if (err) {
+            // If an error occurs send the error message
+            // return res.status(400).send({
+            //     message: getErrorMessage(err)
+        // });
+        console.log(err)
+        } else {
+            // Send a JSON representation of the article 
+            res.json(apply);
+        }
+    });
+};
